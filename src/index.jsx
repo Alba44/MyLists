@@ -1,11 +1,13 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import { render } from 'react-dom';
 import './index.css';
-import App from './App';
+import Dashboard from './components/dashboard/Dashboard';
+import Header from './components/header/Header';
 
-ReactDOM.render(
+render(
   <React.StrictMode>
-    <App />
+    <Header />
+    <Dashboard />
   </React.StrictMode>,
   document.getElementById('root'),
 );
