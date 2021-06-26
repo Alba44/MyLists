@@ -8,7 +8,7 @@ export default function Dashboard() {
       <ul>
         {
           data.map((link) => (
-            <li>
+            <li key={link.id}>
               <a href={link.url}>{link.text}</a>
             </li>
           ))

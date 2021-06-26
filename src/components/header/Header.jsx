@@ -1,18 +1,21 @@
 import React, { useState } from 'react';
 import './Header.css';
+import { addLink } from '../../redux/actions/actions';
 
 export default function Header() {
-    useState
+  const [link, setLink] = useState('');
+  const [name, setName] = useState('');
 
-    function addNewLink(){
-
-    }
+  function addNewLink(url, label) {
+    addLink(url, label);
+  }
   return (
     <header>
       <h1>My Lists</h1>
       <form>
-        <input type="text" placeholder="New link" value=""/>
-        <button type="button" onClick={}>
+        <input type="text" placeholder="New link" value={link} onChange={(event) => setLink(event.target.value)} />
+        <input type="text" placeholder="Name" value={name} onChange={(event) => setName(event.target.value)} />
+        <button type="button" onClick={addNewLink(link, name)}>
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M8 12H12M16 12H12M12 12V8M12 12V16" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
             <path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
