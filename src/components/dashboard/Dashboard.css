@@ -1,4 +1,17 @@
 .main-container {
-  background-color: #db0972;
+  margin: 30px;
+}
+
+.main-container ul {
+  padding-left: 0;
+}
+
+.main-container ul li {
+  padding-bottom: 15px;
+  list-style: none;
+}
+
+.main-container ul li a {
+  text-decoration: none;
 }
 /*# sourceMappingURL=Dashboard.css.map */
