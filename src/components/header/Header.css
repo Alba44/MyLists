@@ -1,15 +1,22 @@
 header {
-    background-color: aquamarine;
-    margin: 0 30px;
+  background-color: aquamarine;
+  margin: 0 30px;
 }
 
-form{
-    display: flex;
+header .header_inputs-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
 }
 
-button{
-    padding: 2px;
-    display: flex;
-    justify-content: center;
-    cursor: pointer;
+header .header_inputs-container .add-link {
+  padding: 2px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  cursor: pointer;
 }
+/*# sourceMappingURL=Header.css.map */
