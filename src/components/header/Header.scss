@@ -1,15 +1,28 @@
 header {
-    background-color: aquamarine;
-    margin: 0 30px;
+    background-color: rgb(127, 229, 255);
+    padding: 20px 30px;
+    
+    .header_title{
+        margin-top: 0;
+    }
     
     .header_inputs-container{
         display: flex;
+        flex-direction: column;
+
+        .input-box{
+            width: 30%;
+            height: 20px;
+            margin-bottom: 10px;
+        }
+
         
         .add-link{
-            padding: 2px;
-            display: flex;
-            justify-content: center;
+            width: 10%;
+            padding: 5px;
             cursor: pointer;
+            background-color: rgb(118, 200, 255);
+            border: 1px solid rgb(5, 5, 88);
         }
     }
 }
