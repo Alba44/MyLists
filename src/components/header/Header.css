@@ -1,22 +1,33 @@
 header {
-  background-color: aquamarine;
-  margin: 0 30px;
+  background-color: #7fe5ff;
+  padding: 20px 30px;
+}
+
+header .header_title {
+  margin-top: 0;
 }
 
 header .header_inputs-container {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+header .header_inputs-container .input-box {
+  width: 30%;
+  height: 20px;
+  margin-bottom: 10px;
 }
 
 header .header_inputs-container .add-link {
-  padding: 2px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  width: 10%;
+  padding: 5px;
   cursor: pointer;
+  background-color: #76c8ff;
+  border: 1px solid #050558;
 }
 /*# sourceMappingURL=Header.css.map */

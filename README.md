@@ -1,4 +1,6 @@
-# Getting Started with Create React App
+# My Links
+
+Little app to save all interesting links, sorted by topic
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
