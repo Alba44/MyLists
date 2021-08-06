@@ -5,6 +5,7 @@ import data from '../../shared/links';
 export default function Dashboard() {
   return (
     <div className="main-container">
+      <h2 className="main_title">Projects</h2>
       <ul>
         {
           data.map((link) => (

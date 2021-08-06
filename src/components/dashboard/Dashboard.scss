@@ -1,3 +1,14 @@
 .main-container {
-    background-color: rgb(219, 9, 114);
+    margin: 30px;
+
+    ul{
+
+        li{
+            padding-bottom: 15px;
+
+            a{
+                text-decoration: none;
+            }
+        }
+    }
 }
