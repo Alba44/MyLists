@@ -7,6 +7,7 @@ export default function Header() {
   const [name, setName] = useState('');
 
   function addNewLink(url, label) {
+    debugger;
     addLink(url, label);
   }
   return (
