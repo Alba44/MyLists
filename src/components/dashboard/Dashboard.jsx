@@ -10,7 +10,7 @@ export default function Dashboard() {
         {
           data.map((link) => (
             <li key={link.id}>
-              <a href={link.url}>{link.text}</a>
+              <a href={link.url ? link.url : '#'}>{link.text}</a>
             </li>
           ))
         }
