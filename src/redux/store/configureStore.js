@@ -1,9 +1,10 @@
 import { compose, applyMiddleware, createStore } from 'redux';
 import reduxImmutableStatInvariant from 'redux-immutable-state-invariant';
 import thunk from 'redux-thunk';
-import rootReducer from './reducers';
+import rootReducer from '../reducers';
+import initialState from './initialState';
 
-export default function configureStore(initialState) {
+export default function configureStore() {
   const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
   return createStore(
