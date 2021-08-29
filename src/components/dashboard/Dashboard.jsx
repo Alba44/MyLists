@@ -1,14 +1,18 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { PropTypes } from 'prop-types';
-import { addLink } from '../../redux/actions/actions';
+import { addLink, loadLinks } from '../../redux/actions/actions';
 import data from '../../shared/links';
 import './Dashboard.css';
 
 function Dashboard({ links, actions }) {
   const [link, setLink] = useState('');
   const [name, setName] = useState('');
+
+  useEffect(() => {
+    actions.loadLinks();
+  }, [links]);
 
   return (
     <div className="main-container">
@@ -45,18 +49,19 @@ Dashboard.propTypes = {
   links: PropTypes.shape([]).isRequired,
   actions: PropTypes.shape({
     addLink: PropTypes.func.isRequired,
+    loadLinks: PropTypes.func.isRequired,
   }).isRequired,
 };
 
-function mapStateToProps(links) {
+function mapStateToProps(state) {
   return {
-    links,
+    links: state.links,
   };
 }
 
 function mapDispatchToProps(dispatch) {
   return {
-    actions: bindActionCreators({ addLink }, dispatch),
+    actions: bindActionCreators({ addLink, loadLinks }, dispatch),
   };
 }
 
