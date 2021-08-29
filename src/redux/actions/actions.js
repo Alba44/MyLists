@@ -13,3 +13,10 @@ export function deleteLink(id) {
     data: id,
   };
 }
+
+export function loadLinks(allLinks) {
+  return {
+    type: actionTypes.LOAD_LINKS,
+    data: allLinks,
+  };
+}
