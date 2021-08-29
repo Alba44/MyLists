@@ -1,4 +1,5 @@
 import actionTypes from './actionsTypes';
+import allLinks from '../../shared/links';
 
 export function addLink(url, label) {
   return {
@@ -14,7 +15,7 @@ export function deleteLink(id) {
   };
 }
 
-export function loadLinks(allLinks) {
+export function loadLinks() {
   return {
     type: actionTypes.LOAD_LINKS,
     data: allLinks,
