@@ -1,16 +1,38 @@
-import React from 'react';
-import './Dashboard.css';
+import React, { useState } from 'react';
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
+import { PropTypes } from 'prop-types';
+import { addLink } from '../../redux/actions/actions';
 import data from '../../shared/links';
+import './Dashboard.css';
 
-export default function Dashboard() {
+function Dashboard({ links, actions }) {
+  const [link, setLink] = useState('');
+  const [name, setName] = useState('');
+
   return (
     <div className="main-container">
+      <form className="header_inputs-container">
+        <input className="input-box link" type="text" placeholder="URL" value={link} onChange={(event) => setLink(event.target.value)} />
+        <input className="input-box name" type="text" placeholder="Name" value={name} onChange={(event) => setName(event.target.value)} />
+        <button className="add-link" type="button" onClick={() => actions.addLink(link, name)}>Add Link</button>
+      </form>
       <h2 className="main_title">Projects</h2>
       <ul>
         {
-          data.map((link) => (
-            <li key={link.id}>
-              <a href={link.url ? link.url : '#'}>{link.text}</a>
+          data.map((oldLinks) => (
+            <li key={oldLinks.id}>
+              <a href={oldLinks.url ? oldLinks.url : '#'}>{oldLinks.text}</a>
+            </li>
+          ))
+        }
+      </ul>
+      <h2 className="main_title">Links</h2>
+      <ul>
+        {
+          links && links.map((newLink) => (
+            <li key={newLink.id}>
+              <a href={newLink.url ? newLink.url : '#'}>{newLink.text}</a>
             </li>
           ))
         }
@@ -18,3 +40,24 @@ export default function Dashboard() {
     </div>
   );
 }
+
+Dashboard.propTypes = {
+  links: PropTypes.shape([]).isRequired,
+  actions: PropTypes.shape({
+    addLink: PropTypes.func.isRequired,
+  }).isRequired,
+};
+
+function mapStateToProps(links) {
+  return {
+    links,
+  };
+}
+
+function mapDispatchToProps(dispatch) {
+  return {
+    actions: bindActionCreators({ addLink }, dispatch),
+  };
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Dashboard);
