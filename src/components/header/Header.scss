@@ -5,25 +5,5 @@ header {
     .header_title{
         margin-top: 0;
     }
-    
-    .header_inputs-container{
-        display: flex;
-        flex-direction: column;
-
-        .input-box{
-            width: 30%;
-            height: 20px;
-            margin-bottom: 10px;
-        }
-
-        
-        .add-link{
-            width: 10%;
-            padding: 5px;
-            cursor: pointer;
-            background-color: rgb(118, 200, 255);
-            border: 1px solid rgb(5, 5, 88);
-        }
-    }
 }
 
