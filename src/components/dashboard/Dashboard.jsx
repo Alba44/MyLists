@@ -3,7 +3,6 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { PropTypes } from 'prop-types';
 import { addLink, loadLinks } from '../../redux/actions/actions';
-import data from '../../shared/links';
 import './Dashboard.css';
 
 function Dashboard({ links, actions }) {
@@ -12,7 +11,7 @@ function Dashboard({ links, actions }) {
 
   useEffect(() => {
     actions.loadLinks();
-  }, [links]);
+  }, [link]);
 
   return (
     <div className="main-container">
@@ -21,16 +20,6 @@ function Dashboard({ links, actions }) {
         <input className="input-box name" type="text" placeholder="Name" value={name} onChange={(event) => setName(event.target.value)} />
         <button className="add-link" type="button" onClick={() => actions.addLink(link, name)}>Add Link</button>
       </form>
-      <h2 className="main_title">Projects</h2>
-      <ul>
-        {
-          data.map((oldLinks) => (
-            <li key={oldLinks.id}>
-              <a href={oldLinks.url ? oldLinks.url : '#'}>{oldLinks.text}</a>
-            </li>
-          ))
-        }
-      </ul>
       <h2 className="main_title">Links</h2>
       <ul>
         {
@@ -53,9 +42,9 @@ Dashboard.propTypes = {
   }).isRequired,
 };
 
-function mapStateToProps(state) {
+function mapStateToProps({ links }) {
   return {
-    links: state.links,
+    links,
   };
 }
 
