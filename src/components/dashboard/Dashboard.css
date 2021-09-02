@@ -23,19 +23,34 @@
   padding: 5px;
   cursor: pointer;
   background-color: #76c8ff;
-  border: 1px solid #050558;
+  border: 1px solid #1fa0f7;
+  border-radius: 5%;
+  cursor: pointer;
 }
 
-.main-container ul {
+.main-container .main_links-list {
   padding-left: 0;
 }
 
-.main-container ul li {
+.main-container .main_links-list .list_link {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   padding-bottom: 15px;
   list-style: none;
 }
 
-.main-container ul li a {
+.main-container .main_links-list .list_link .list_link-anchor {
   text-decoration: none;
+}
+
+.main-container .main_links-list .list_link .delete-link {
+  margin-left: 10px;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
 }
 /*# sourceMappingURL=Dashboard.css.map */
