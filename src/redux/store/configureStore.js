@@ -4,7 +4,7 @@ import thunk from 'redux-thunk';
 import initialState from './initialState';
 import rootReducer from '../reducers';
 
-export default function configureStore() {
+function configureStore() {
   const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
   return createStore(
@@ -13,3 +13,5 @@ export default function configureStore() {
     composeEnhancers(applyMiddleware(reduxImmutableStatInvariant(), thunk)),
   );
 }
+
+export default configureStore();
