@@ -2,31 +2,31 @@ import React, { useState, useEffect } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { PropTypes } from 'prop-types';
-import { addLink, loadLinks } from '../../redux/actions/actions';
+import { addLink, loadLinks, deleteLink } from '../../redux/actions/actions';
 import './Dashboard.css';
 
 function Dashboard({ links, actions }) {
-  const [link, setLink] = useState('');
+  const [newLink, setLink] = useState('');
   const [name, setName] = useState('');
 
   useEffect(() => {
     actions.loadLinks();
-  }, [link]);
+  }, [newLink]);
 
   return (
     <div className="main-container">
       <form className="header_inputs-container">
-        <input className="input-box link" type="text" placeholder="URL" value={link} onChange={(event) => setLink(event.target.value)} />
+        <input className="input-box link" type="text" placeholder="URL" value={newLink} onChange={(event) => setLink(event.target.value)} />
         <input className="input-box name" type="text" placeholder="Name" value={name} onChange={(event) => setName(event.target.value)} />
-        <button className="add-link" type="button" onClick={() => actions.addLink(link, name)}>Add Link</button>
+        <button className="add-link" type="button" onClick={() => actions.addLink(newLink, name)}>Add Link</button>
       </form>
       <h2 className="main_title">Links</h2>
       <ul className="main_links-list">
         {
-          links && links.map((newLink) => (
-            <li key={newLink.id} className="list_link">
-              <a className="list_link-anchor" href={newLink.url ? newLink.url : '#'}>{newLink.text}</a>
-              <button type="button" className="delete-link">
+          links && links.map((link) => (
+            <li key={link.id} className="list_link">
+              <a className="list_link-anchor" href={link.url ? link.url : '#'}>{link.text}</a>
+              <button type="button" className="delete-link" onClick={() => deleteLink(link.id)}>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   x="0px"
@@ -55,6 +55,7 @@ Dashboard.propTypes = {
   actions: PropTypes.shape({
     addLink: PropTypes.func.isRequired,
     loadLinks: PropTypes.func.isRequired,
+    deleteLink: PropTypes.func.isRequired,
   }).isRequired,
 };
 
@@ -66,7 +67,7 @@ function mapStateToProps({ links }) {
 
 function mapDispatchToProps(dispatch) {
   return {
-    actions: bindActionCreators({ addLink, loadLinks }, dispatch),
+    actions: bindActionCreators({ addLink, loadLinks, deleteLink }, dispatch),
   };
 }
 
