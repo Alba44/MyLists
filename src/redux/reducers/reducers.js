@@ -6,7 +6,7 @@ export default function reducers(state = [], { type, data }) {
       return [...state, { id: state.length + 1, url: data[0], text: data[1] }];
 
     case actionTypes.DELETE_LINK:
-      return state.filter((link) => link.id !== data.id);
+      return state.filter((link) => link.id !== data);
 
     case actionTypes.LOAD_LINKS:
       return data;
