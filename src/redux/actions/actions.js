@@ -22,9 +22,9 @@ export function loadLinks() {
   };
 }
 
-export function updateLink(updatedLink) {
+export function updateLink(id, url, name) {
   return {
     type: actionTypes.UPDATE_LINK,
-    data: updatedLink,
+    data: [id, url, name],
   };
 }
