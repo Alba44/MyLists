@@ -26,7 +26,7 @@ function Dashboard({ links, actions }) {
           links && links.map((link) => (
             <li key={link.id} className="list_link">
               <a className="list_link-anchor" href={link.url ? link.url : '#'}>{link.text}</a>
-              <button type="button" className="delete-link" onClick={() => deleteLink(link.id)}>
+              <button type="button" className="delete-link" onClick={() => actions.deleteLink(link.id)}>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   x="0px"
