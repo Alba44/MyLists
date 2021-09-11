@@ -19,7 +19,6 @@
             background-color: rgb(118, 200, 255);
             border: 1px solid rgb(31, 160, 247);
             border-radius: 5%;
-            cursor: pointer;
         }
     }
 
@@ -36,7 +35,7 @@
                 text-decoration: none;
             }
 
-            .link-btn{
+            .list_link-btn{
                 background-color: transparent;
                 border: none;
                 cursor: pointer;
@@ -44,8 +43,32 @@
 
             .delete{
                 margin-left: 10px;
-                
             }
+
+        }
+    }
+    
+    .main_update-box{
+        width: 200px;
+        background-color: #fff;
+        padding: 20px;
+        box-shadow: 2px 2px 5px 2px #949494;
+
+        .update{
+            display: flex;
+            margin-bottom: 15px;
+        }
+    
+        .visible{
+            display: inline;
+        }
+        
+        .update-link{
+            padding: 5px 15px;
+            cursor: pointer;
+            background-color: rgb(118, 200, 255);
+            border: 1px solid rgb(31, 160, 247);
+            border-radius: 5%;
         }
     }
 }
