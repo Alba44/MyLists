@@ -25,7 +25,6 @@
   background-color: #76c8ff;
   border: 1px solid #1fa0f7;
   border-radius: 5%;
-  cursor: pointer;
 }
 
 .main-container .main_links-list {
@@ -47,7 +46,7 @@
   text-decoration: none;
 }
 
-.main-container .main_links-list .list_link .link-btn {
+.main-container .main_links-list .list_link .list_link-btn {
   background-color: transparent;
   border: none;
   cursor: pointer;
@@ -55,5 +54,32 @@
 
 .main-container .main_links-list .list_link .delete {
   margin-left: 10px;
+}
+
+.main-container .main_update-box {
+  width: 200px;
+  background-color: #fff;
+  padding: 20px;
+  -webkit-box-shadow: 2px 2px 5px 2px #949494;
+          box-shadow: 2px 2px 5px 2px #949494;
+}
+
+.main-container .main_update-box .update {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin-bottom: 15px;
+}
+
+.main-container .main_update-box .visible {
+  display: inline;
+}
+
+.main-container .main_update-box .update-link {
+  padding: 5px 15px;
+  cursor: pointer;
+  background-color: #76c8ff;
+  border: 1px solid #1fa0f7;
+  border-radius: 5%;
 }
 /*# sourceMappingURL=Dashboard.css.map */
