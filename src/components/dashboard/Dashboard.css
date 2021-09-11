@@ -47,10 +47,13 @@
   text-decoration: none;
 }
 
-.main-container .main_links-list .list_link .delete-link {
-  margin-left: 10px;
+.main-container .main_links-list .list_link .link-btn {
   background-color: transparent;
   border: none;
   cursor: pointer;
+}
+
+.main-container .main_links-list .list_link .delete {
+  margin-left: 10px;
 }
 /*# sourceMappingURL=Dashboard.css.map */

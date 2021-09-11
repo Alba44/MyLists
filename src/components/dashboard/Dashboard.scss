@@ -36,11 +36,15 @@
                 text-decoration: none;
             }
 
-            .delete-link{
-                margin-left: 10px;
+            .link-btn{
                 background-color: transparent;
                 border: none;
                 cursor: pointer;
+            }
+
+            .delete{
+                margin-left: 10px;
+                
             }
         }
     }
