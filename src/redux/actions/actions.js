@@ -21,3 +21,10 @@ export function loadLinks() {
     data: allLinks,
   };
 }
+
+export function updateLink(updatedLink) {
+  return {
+    type: actionTypes.UPDATE_LINK,
+    data: updatedLink,
+  };
+}
