@@ -2,7 +2,9 @@ import React, { useState, useEffect } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { PropTypes } from 'prop-types';
-import { addLink, loadLinks, deleteLink } from '../../redux/actions/actions';
+import {
+  addLink, loadLinks, deleteLink, updateLink,
+} from '../../redux/actions/actions';
 import './Dashboard.css';
 
 function Dashboard({ links, actions }) {
@@ -10,6 +12,7 @@ function Dashboard({ links, actions }) {
   const [name, setName] = useState('');
   const [updatedURL, setNewURL] = useState('');
   const [updatedName, setNewName] = useState('');
+  const [linkId, setId] = useState('');
 
   useEffect(() => {
     actions.loadLinks();
@@ -45,7 +48,7 @@ function Dashboard({ links, actions }) {
 
                   </svg>
                 </button>
-                <button type="button" className="list_link-btn">
+                <button type="button" className="list_link-btn" onClick={() => setId(link.id)}>
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     x="0px"
@@ -69,7 +72,7 @@ function Dashboard({ links, actions }) {
       <form className="main_update-box">
         <input className="input-box update" type="text" placeholder="URL" value={updatedURL} onChange={(event) => setNewURL(event.target.value)} />
         <input className="input-box update" type="text" placeholder="Name" value={updatedName} onChange={(event) => setNewName(event.target.value)} />
-        <button type="button" className="update-link">Update</button>
+        <button type="button" className="update-link" onClick={() => actions.updateLink(linkId, updatedURL, updatedName)}>Update</button>
       </form>
     </div>
   );
@@ -81,6 +84,7 @@ Dashboard.propTypes = {
     addLink: PropTypes.func.isRequired,
     loadLinks: PropTypes.func.isRequired,
     deleteLink: PropTypes.func.isRequired,
+    updateLink: PropTypes.func.isRequired,
   }).isRequired,
 };
 
@@ -92,7 +96,9 @@ function mapStateToProps({ links }) {
 
 function mapDispatchToProps(dispatch) {
   return {
-    actions: bindActionCreators({ addLink, loadLinks, deleteLink }, dispatch),
+    actions: bindActionCreators({
+      addLink, loadLinks, deleteLink, updateLink,
+    }, dispatch),
   };
 }
 
